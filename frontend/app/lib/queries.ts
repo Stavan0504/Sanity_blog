@@ -99,6 +99,35 @@ export const BLOGS_QUERY = defineQuery(`*[_type == "section"][1]{
 
 `)
 
+
+export const LIST_QUERY = defineQuery(`*[_type == "section"][1]{
+  _id,
+  title,
+  arrays[] {
+    ...,
+    _type == "blogSection" => {
+      title,
+     posts[]->{
+        _id,
+        title,
+        mainImage,
+        preview,
+        slug,
+        publishedAt,
+        author->{
+          name,
+          image,
+          slug
+        }
+      }
+    }
+  }
+}
+
+`)
+
+
+
 export const PAGE_QUERY = defineQuery(`*[_type == "post" && slug.current == $slug][0]{
     _id,
     title,

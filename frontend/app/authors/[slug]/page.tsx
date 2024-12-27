@@ -3,8 +3,6 @@ import React from 'react';
 import { client } from '../../lib/client';
 import imageUrlBuilder from '@sanity/image-url';
 import { AUTHOR_QUERY, AUTHOR_POSTS_QUERY } from '../../lib/queries';
-import { Button } from '@/components/ui/button';
-import { GetServerSideProps } from 'next';
 import PortableText from 'react-portable-text';
 import Image from 'next/image';
 import Link from 'next/link';
