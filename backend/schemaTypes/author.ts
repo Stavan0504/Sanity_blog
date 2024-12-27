@@ -40,11 +40,18 @@ export default defineType({
         },
       ],
     }),
+    defineField({
+      name:'post',
+      type:'array',
+      title:'Posts',
+      of:[{type:'reference',to:{type:'post'}}]
+    })
   ],
   preview: {
     select: {
       title: 'name',
       media: 'image',
+      slug:'slug',
     },
   },
 })

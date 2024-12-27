@@ -14,7 +14,7 @@ export default defineType({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      options: {
+      options: {  
         source: 'title',
         maxLength: 96,
       },
@@ -49,13 +49,24 @@ export default defineType({
       title: 'Body',
       type: 'blockContent',
     }),
-  ],
+    defineField({
+      name: 'preview',
+      title: 'Preview',
+      type: 'blockContent',
+    }),
+    defineType({
+      name: 'header',
+      title: 'Header',
+      type: 'reference',
+      to :{type: 'header'}  
+      })
+      ],
 
   preview: {
     select: {
       title: 'title',
       author: 'author.name',
-      media: 'mainImage',
+      media: 'mainImage', 
     },
     prepare(selection) {
       const {author} = selection
